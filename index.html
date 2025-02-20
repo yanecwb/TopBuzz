@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>还原设计页面</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #333;
+            max-width: 375px;
+            margin: auto;
+        }
+        .swiper {
+            width: 100%;
+            height: 200px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            background: white;
+        }
+        .nav div {
+            text-align: center;
+        }
+        .nav img {
+            width: 24px;
+            height: 24px;
+        }
+        .nav p {
+            font-size: 12px;
+        }
+        .content {
+            padding: 10px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .topics {
+            display: flex;
+            gap: 10px;
+        }
+        .topic {
+            flex: 1;
+            position: relative;
+        }
+        .topic img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .topic-title {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .article {
+            margin-top: 10px;
+        }
+        .article img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .article p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .participate {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        .participate button {
+            background: #ff4d4f;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="banner1.jpg" alt="banner"></div>
+            <div class="swiper-slide"><img src="banner2.jpg" alt="banner"></div>
+            <div class="swiper-slide"><img src="banner3.jpg" alt="banner"></div>
+        </div>
+    </div>
+    
+    <div class="nav">
+        <div><img src="icon1.png" alt=""><p>生活</p></div>
+        <div><img src="icon2.png" alt=""><p>文娱</p></div>
+        <div><img src="icon3.png" alt=""><p>商业</p></div>
+        <div><img src="icon4.png" alt=""><p>科技</p></div>
+        <div><img src="icon5.png" alt=""><p>教育</p></div>
+    </div>
+    
+    <div class="content">
+        <div class="section-title">精选内容</div>
+        <div class="topics">
+            <div class="topic"><img src="topic1.jpg" alt=""><div class="topic-title">编辑精选</div></div>
+            <div class="topic"><img src="topic2.jpg" alt=""><div class="topic-title">活动主题</div></div>
+            <div class="topic"><img src="topic3.jpg" alt=""><div class="topic-title">话题投票</div></div>
+        </div>
+        
+        <div class="article">
+            <img src="article.jpg" alt="">
+            <p>#话题 春运：每个特别的回家礼物背后，都藏着一句没说出口的话</p>
+        </div>
+    </div>
+    
+    <div class="participate">
+        <span>49.7万人参与</span>
+        <button>我要参与</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+</html>
