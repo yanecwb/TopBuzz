@@ -1,154 +1,256 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>还原设计页面</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #fff;
-            color: #333;
-            max-width: 375px;
-            margin: auto;
-        }
-        .swiper {
-            width: 100%;
-            height: 200px;
-        }
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .nav {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            background: white;
-        }
-        .nav div {
-            text-align: center;
-        }
-        .nav img {
-            width: 24px;
-            height: 24px;
-        }
-        .nav p {
-            font-size: 12px;
-        }
-        .content {
-            padding: 10px;
-        }
-        .section-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-        .topics {
-            display: flex;
-            gap: 10px;
-        }
-        .topic {
-            flex: 1;
-            position: relative;
-        }
-        .topic img {
-            width: 100%;
-            border-radius: 5px;
-        }
-        .topic-title {
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            font-size: 12px;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-        .article {
-            margin-top: 10px;
-        }
-        .article img {
-            width: 100%;
-            border-radius: 5px;
-        }
-        .article p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        .participate {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            border-top: 1px solid #eee;
-        }
-        .participate button {
-            background: #ff4d4f;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>H5 响应式首页</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <style>
+    :root {
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Header */
+    .header {
+      padding: 1rem;
+      background: #000;
+      color: #fff;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .header p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* 轮播图 */
+    .swiper {
+      width: 100%;
+      height: 40vh;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 分类导航 */
+    .category {
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      background: white;
+    }
+
+    .category div {
+      text-align: center;
+    }
+
+    .category div i {
+      font-size: 1.5rem;
+      color: #f66b6b;
+    }
+
+    .category div p {
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    /* 内容卡片 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .grid .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .grid .card img {
+      width: 100%;
+      height: auto;
+      max-height: 15vh;
+      object-fit: cover;
+    }
+
+    .grid .card h3 {
+      font-size: 1rem;
+      margin: 0.5rem;
+    }
+
+    .grid .card p {
+      font-size: 0.9rem;
+      color: #666;
+      padding: 0 0.5rem 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .footer button {
+      background: #f66b6b;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    .footer button:hover {
+      background: #d24d4d;
+    }
+
+    /* 媒体查询适配不同屏幕 */
+    @media (min-width: 768px) {
+      .swiper {
+        height: 50vh;
+      }
+
+      .category div i {
+        font-size: 2rem;
+      }
+
+      .category div p {
+        font-size: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .grid .card img {
+        max-height: 20vh;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .swiper {
+        height: 60vh;
+      }
+
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .footer button {
+        max-width: 400px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="banner1.jpg" alt="banner"></div>
-            <div class="swiper-slide"><img src="banner2.jpg" alt="banner"></div>
-            <div class="swiper-slide"><img src="banner3.jpg" alt="banner"></div>
-        </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>这些土味仪式感正在消失</h1>
+    <p>困困商圈 45.6万阅</p>
+  </div>
+
+  <!-- 轮播图 -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://images4.alphacoders.com/134/thumbbig-1347937.webp" alt="Banner 1"></div>
+      <div class="swiper-slide"><img src="https://images5.alphacoders.com/564/thumbbig-564931.webp" alt="Banner 2"></div>
+      <div class="swiper-slide"><img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="Banner 3"></div>
     </div>
-    
-    <div class="nav">
-        <div><img src="icon1.png" alt=""><p>生活</p></div>
-        <div><img src="icon2.png" alt=""><p>文娱</p></div>
-        <div><img src="icon3.png" alt=""><p>商业</p></div>
-        <div><img src="icon4.png" alt=""><p>科技</p></div>
-        <div><img src="icon5.png" alt=""><p>教育</p></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- 分类导航 -->
+  <div class="category">
+    <div>
+      <i class="fa fa-tv"></i>
+      <a href="/index2.html">
+        <p>生活</p>
+      </a>
     </div>
-    
-    <div class="content">
-        <div class="section-title">精选内容</div>
-        <div class="topics">
-            <div class="topic"><img src="topic1.jpg" alt=""><div class="topic-title">编辑精选</div></div>
-            <div class="topic"><img src="topic2.jpg" alt=""><div class="topic-title">活动主题</div></div>
-            <div class="topic"><img src="topic3.jpg" alt=""><div class="topic-title">话题投票</div></div>
-        </div>
-        
-        <div class="article">
-            <img src="article.jpg" alt="">
-            <p>#话题 春运：每个特别的回家礼物背后，都藏着一句没说出口的话</p>
-        </div>
+    <div>
+      <i class="fa fa-film"></i>
+      <p>文娱</p>
     </div>
-    
-    <div class="participate">
-        <span>49.7万人参与</span>
-        <button>我要参与</button>
+    <div>
+      <i class="fa fa-briefcase"></i>
+      <p>商业</p>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+    <div>
+      <i class="fa fa-flask"></i>
+      <p>科技</p>
+    </div>
+    <div>
+      <i class="fa fa-graduation-cap"></i>
+      <p>教育</p>
+    </div>
+  </div>
+
+  <!-- 内容卡片 -->
+  <div class="grid">
+    <div class="card">
+      <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="编辑精选">
+      <h3>编辑精选</h3>
+      <p>精选内容等你来看</p>
+    </div>
+    <div class="card">
+      <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="活动主题">
+      <h3>活动主题</h3>
+      <p>参与活动赢取奖励</p>
+    </div>
+    <div class="card">
+      <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="话题投票">
+      <h3>话题投票</h3>
+      <p>投票决定你想看的内容</p>
+    </div>
+    <div class="card">
+      <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="春节活动">
+      <h3>春节活动</h3>
+      <p>每个国家礼物背后都有故事</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <button>我要参与</button>
+  </div>
+
+  <!-- Swiper 轮播图 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      autoplay: { delay: 3000, disableOnInteraction: false },
+    });
+  </script>
+
 </body>
 </html>

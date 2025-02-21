@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网页设计</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* 通用样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* 顶部导航 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #fff;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header .logo {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .header .search-box {
+      display: flex;
+      border-radius: 20px;
+      background-color: #f1f1f1;
+      padding: 5px 15px;
+      align-items: center;
+      width: 80%;
+    }
+
+    .header .search-box input {
+      border: none;
+      background-color: transparent;
+      outline: none;
+      flex-grow: 1;
+    }
+
+    .header .search-box i {
+      color: #999;
+    }
+
+    /* Tabs 栏 */
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+      margin-top: 10px;
+      border-bottom: 2px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab:hover {
+      background-color: #f1f1f1;
+    }
+
+    .tab.active {
+      font-weight: bold;
+      border-bottom: 2px solid #007bff;
+      color: #007bff;
+    }
+
+    /* 广告图轮播 */
+    .carousel {
+      width: 100%;
+      height: 220px;
+      background: url('https://via.placeholder.com/800x300/000000/FFFFFF?text=Ad+Banner') no-repeat center center;
+      background-size: cover;
+      margin-top: 10px;
+      animation: carouselAnimation 10s infinite;
+    }
+
+    /* 轮播图动画 */
+    @keyframes carouselAnimation {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* 主要内容 */
+    .content {
+      padding: 10px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .news-item {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .news-item .time {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .news-item .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 5px;
+      color: #333;
+    }
+
+    .news-item .description {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    /* 新闻项淡入动画 */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* 底部按钮 */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #fff;
+      position: sticky;
+      bottom: 0;
+    }
+
+    .footer button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .header .search-box {
+        width: 70%;
+      }
+
+      .carousel {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <div class="header">
+    <div class="logo">uINotes</div>
+    <div class="search-box">
+      <input type="text" placeholder="搜索">
+      <i class="fas fa-search"></i>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab active" onclick="changeTab(0)">推荐</div>
+    <div class="tab" onclick="changeTab(1)">热榜</div>
+    <div class="tab" onclick="changeTab(2)">创投</div>
+    <div class="tab" onclick="changeTab(3)">财经</div>
+    <div class="tab" onclick="changeTab(4)">科技</div>
+    <div class="tab" onclick="changeTab(5)">视频</div>
+  </div>
+
+  <!-- 广告图 -->
+  <div class="carousel"></div>
+
+  <!-- 主要内容 -->
+  <div class="content">
+    <div class="section-title">推荐</div>
+
+    <!-- 新闻项 -->
+    <div class="news-item" style="animation-delay: 0.2s;">
+      <div class="time">13:57</div>
+      <div class="title">36氪独家：对音电商副总裁青调研</div>
+      <div class="description">AI长文本之战：Kimi快跑，大厂围剿焦点分析。</div>
+    </div>
+    <div class="news-item" style="animation-delay: 0.4s;">
+      <div class="time">12:45</div>
+      <div class="title">小米最全生活供应商</div>
+      <div class="description">36氪独家：小米找到了供应商，“苦安科技”专注高分子材料。</div>
+    </div>
+    <!-- 更多新闻项 -->
+
+  </div>
+
+  <!-- 底部按钮 -->
+  <div class="footer">
+    <button>我要参与</button>
+  </div>
+
+  <script>
+    // 模拟动态加载新闻内容
+    const newsItems = document.querySelectorAll('.news-item');
+    newsItems.forEach((item, index) => {
+      item.style.animationDelay = `${0.2 * index}s`;
+    });
+
+    // Tab 切换功能
+    function changeTab(index) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach((tab, i) => {
+        tab.classList.remove('active');
+        if (i === index) {
+          tab.classList.add('active');
+        }
+      });
+
+      // 切换内容，实际项目中可以根据 `index` 加载不同的内容
+      const sectionTitle = document.querySelector('.section-title');
+      switch (index) {
+        case 0:
+          sectionTitle.textContent = '推荐';
+          break;
+        case 1:
+          sectionTitle.textContent = '热榜';
+          break;
+        case 2:
+          sectionTitle.textContent = '创投';
+          break;
+        case 3:
+          sectionTitle.textContent = '财经';
+          break;
+        case 4:
+          sectionTitle.textContent = '科技';
+          break;
+        case 5:
+          sectionTitle.textContent = '视频';
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
