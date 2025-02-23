@@ -1,278 +1,273 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>网页设计</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <style>
-    /* 通用样式 */
+<style>
+    :root {
+      font-size: 16px;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: "Arial", sans-serif;
       background-color: #f4f4f4;
+      padding-bottom: 50px;
     }
 
-    /* 顶部导航 */
+    /* Header */
     .header {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      background-color: #fff;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .header .logo {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .header .search-box {
-      display: flex;
-      border-radius: 20px;
-      background-color: #f1f1f1;
-      padding: 5px 15px;
-      align-items: center;
-      width: 80%;
-    }
-
-    .header .search-box input {
-      border: none;
-      background-color: transparent;
-      outline: none;
-      flex-grow: 1;
-    }
-
-    .header .search-box i {
-      color: #999;
-    }
-
-    /* Tabs 栏 */
-    .tabs {
-      display: flex;
-      justify-content: space-between;
-      background-color: #fff;
-      margin-top: 10px;
-      border-bottom: 2px solid #ddd;
-      padding: 10px 0;
-    }
-
-    .tab {
-      flex: 1;
+      padding: 1rem;
+      background: #000;
+      color: #fff;
       text-align: center;
-      font-size: 16px;
-      padding: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    .tab:hover {
-      background-color: #f1f1f1;
+    .header h1 {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
     }
 
-    .tab.active {
-      font-weight: bold;
-      border-bottom: 2px solid #007bff;
-      color: #007bff;
+    .header p {
+      font-size: 0.9rem;
+      opacity: 0.8;
     }
 
-    /* 广告图轮播 */
-    .carousel {
+    /* 轮播图 */
+    .swiper {
       width: 100%;
-      height: 220px;
-      background: url('https://via.placeholder.com/800x300/000000/FFFFFF?text=Ad+Banner') no-repeat center center;
-      background-size: cover;
-      margin-top: 10px;
-      animation: carouselAnimation 10s infinite;
+      height: 40vh;
     }
 
-    /* 轮播图动画 */
-    @keyframes carouselAnimation {
-      0% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(0);
-      }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* 主要内容 */
-    .content {
-      padding: 10px;
-    }
-
-    .section-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .news-item {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      opacity: 0;
-      animation: fadeIn 0.5s forwards;
-    }
-
-    .news-item .time {
-      font-size: 14px;
-      color: #888;
-    }
-
-    .news-item .title {
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 5px;
-      color: #333;
-    }
-
-    .news-item .description {
-      font-size: 14px;
-      margin-top: 5px;
-      color: #555;
-    }
-
-    /* 新闻项淡入动画 */
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* 底部按钮 */
-    .footer {
+    /* 分类导航 */
+    .category {
       display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      background-color: #fff;
-      position: sticky;
-      bottom: 0;
+      justify-content: space-around;
+      padding: 1rem;
+      background: white;
+    }
+
+    .category div {
+      text-align: center;
+    }
+
+    .category div i {
+      font-size: 1.5rem;
+      color: #f66b6b;
+    }
+
+    .category div p {
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+    }
+
+    /* 内容卡片 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .grid .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .grid .card img {
+      width: 100%;
+      height: auto;
+      max-height: 15vh;
+      object-fit: cover;
+    }
+
+    .grid .card h3 {
+      font-size: 1rem;
+      margin: 0.5rem;
+    }
+
+    .grid .card p {
+      font-size: 0.9rem;
+      color: #666;
+      padding: 0 0.5rem 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background: #fff;
     }
 
     .footer button {
-      background-color: #007bff;
+      background: #f66b6b;
       color: white;
       border: none;
-      padding: 5px 15px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
       border-radius: 5px;
       cursor: pointer;
+      width: 80%;
+      max-width: 300px;
     }
 
-    /* 响应式 */
-    @media (max-width: 600px) {
-      .header .search-box {
-        width: 70%;
+    .footer button:hover {
+      background: #d24d4d;
+    }
+
+    /* 媒体查询适配不同屏幕 */
+    @media (min-width: 768px) {
+      .swiper {
+        height: 50vh;
       }
 
-      .carousel {
-        height: 150px;
+      .category div i {
+        font-size: 2rem;
+      }
+
+      .category div p {
+        font-size: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .grid .card img {
+        max-height: 20vh;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .swiper {
+        height: 60vh;
+      }
+
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .footer button {
+        max-width: 400px;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- 顶部导航栏 -->
+  <!-- Header -->
   <div class="header">
-    <div class="logo">uINotes</div>
-    <div class="search-box">
-      <input type="text" placeholder="搜索">
-      <i class="fas fa-search"></i>
+    <h1>这些土味仪式感正在消失</h1>
+    <p>困困商圈 45.6万阅</p>
+  </div>
+
+  <!-- 轮播图 -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img
+          src="https://images4.alphacoders.com/134/thumbbig-1347937.webp"
+          alt="Banner 1"
+        />
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="https://images5.alphacoders.com/564/thumbbig-564931.webp"
+          alt="Banner 2"
+        />
+      </div>
+      <div class="swiper-slide">
+        <img
+          src="https://images5.alphacoders.com/463/thumbbig-463438.webp"
+          alt="Banner 3"
+        />
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- 分类导航 -->
+  <div class="category">
+    <div>
+      <i class="fa fa-tv"></i>
+      <a href="/index2.html">
+        <p>生活</p>
+      </a>
+    </div>
+    <div>
+      <i class="fa fa-film"></i>
+      <p>文娱</p>
+    </div>
+    <div>
+      <i class="fa fa-briefcase"></i>
+      <p>商业</p>
+    </div>
+    <div>
+      <i class="fa fa-flask"></i>
+      <p>科技</p>
+    </div>
+    <div>
+      <i class="fa fa-graduation-cap"></i>
+      <p>教育</p>
     </div>
   </div>
 
-  <!-- Tabs -->
-  <div class="tabs">
-    <div class="tab active" onclick="changeTab(0)">推荐</div>
-    <div class="tab" onclick="changeTab(1)">热榜</div>
-    <div class="tab" onclick="changeTab(2)">创投</div>
-    <div class="tab" onclick="changeTab(3)">财经</div>
-    <div class="tab" onclick="changeTab(4)">科技</div>
-    <div class="tab" onclick="changeTab(5)">视频</div>
+  <!-- 内容卡片 -->
+  <div class="grid">
+    <div class="card">
+      <img
+        src="https://images5.alphacoders.com/463/thumbbig-463438.webp"
+        alt="编辑精选"
+      />
+      <h3>编辑精选</h3>
+      <p>精选内容等你来看</p>
+    </div>
+    <div class="card">
+      <img
+        src="https://images5.alphacoders.com/463/thumbbig-463438.webp"
+        alt="活动主题"
+      />
+      <h3>活动主题</h3>
+      <p>参与活动赢取奖励</p>
+    </div>
+    <div class="card">
+      <img
+        src="https://images5.alphacoders.com/463/thumbbig-463438.webp"
+        alt="话题投票"
+      />
+      <h3>话题投票</h3>
+      <p>投票决定你想看的内容</p>
+    </div>
+    <div class="card">
+      <img
+        src="https://images5.alphacoders.com/463/thumbbig-463438.webp"
+        alt="春节活动"
+      />
+      <h3>春节活动</h3>
+      <p>每个国家礼物背后都有故事</p>
+    </div>
   </div>
 
-  <!-- 广告图 -->
-  <div class="carousel"></div>
-
-  <!-- 主要内容 -->
-  <div class="content">
-    <div class="section-title">推荐</div>
-
-    <!-- 新闻项 -->
-    <div class="news-item" style="animation-delay: 0.2s;">
-      <div class="time">13:57</div>
-      <div class="title">36氪独家：对音电商副总裁青调研</div>
-      <div class="description">AI长文本之战：Kimi快跑，大厂围剿焦点分析。</div>
-    </div>
-    <div class="news-item" style="animation-delay: 0.4s;">
-      <div class="time">12:45</div>
-      <div class="title">小米最全生活供应商</div>
-      <div class="description">36氪独家：小米找到了供应商，“苦安科技”专注高分子材料。</div>
-    </div>
-    <!-- 更多新闻项 -->
-
-  </div>
-
-  <!-- 底部按钮 -->
+  <!-- Footer -->
   <div class="footer">
     <button>我要参与</button>
   </div>
 
+  <!-- Swiper 轮播图 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // 模拟动态加载新闻内容
-    const newsItems = document.querySelectorAll('.news-item');
-    newsItems.forEach((item, index) => {
-      item.style.animationDelay = `${0.2 * index}s`;
+
+    var swiper = new Swiper(".swiper", {
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      autoplay: { delay: 3000, disableOnInteraction: false },
     });
-
-    // Tab 切换功能
-    function changeTab(index) {
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach((tab, i) => {
-        tab.classList.remove('active');
-        if (i === index) {
-          tab.classList.add('active');
-        }
-      });
-
-      // 切换内容，实际项目中可以根据 `index` 加载不同的内容
-      const sectionTitle = document.querySelector('.section-title');
-      switch (index) {
-        case 0:
-          sectionTitle.textContent = '推荐';
-          break;
-        case 1:
-          sectionTitle.textContent = '热榜';
-          break;
-        case 2:
-          sectionTitle.textContent = '创投';
-          break;
-        case 3:
-          sectionTitle.textContent = '财经';
-          break;
-        case 4:
-          sectionTitle.textContent = '科技';
-          break;
-        case 5:
-          sectionTitle.textContent = '视频';
-          break;
-      }
-    }
   </script>
-
-</body>
-</html>
