@@ -1,6 +1,4 @@
 function loadTabbar(placeholderId, tabbarPath) {
-  console.log(" Initia  Ton Evm");
-  // 确保使用绝对路径
   const absolutePath = `${window.location.origin}${tabbarPath}`;
 
   fetch(absolutePath)
@@ -22,7 +20,7 @@ function loadTabbar(placeholderId, tabbarPath) {
 }
 
 // 自动加载
-// document.addEventListener("DOMContentLoaded", function () {
-// 使用绝对路径加载 Tabbar.html
-loadTabbar("tabbar-placeholder", "/public/components/Tabbar/Tabbar.html");
-// });
+document.addEventListener("DOMContentLoaded", function () {
+  // 使用绝对路径加载 Tabbar.html
+  loadTabbar("tabbar-placeholder", "/components/Tabbar/Tabbar.html");
+});

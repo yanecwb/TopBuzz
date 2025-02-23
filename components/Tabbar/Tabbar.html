@@ -1,48 +1,60 @@
-<style>
-  .tabbar {
-    height: 50px;
-    width: 100vw;
-    background-color: #f5f5f5;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-      0 4px 6px -4px rgb(0 0 0 / 0.1);
-  }
+<!DOCTYPE html>
+<html lang="en">
 
-  .tabbar .tabbar-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #333;
-  }
-</style>
-<div class="tabbar">
-  <a href="index.html">
-    <div class="tabbar-item">
-      <img src="https://img.icons8.com/material-outlined/24/000000/home.png" />
-      <span>首页</span>
-    </div>
-  </a>
-  <a href="index2.html">
-    <div class="tabbar-item">
-      <img src="https://img.icons8.com/material-outlined/24/000000/home.png" />
-      <span>社区</span>
-    </div>
-  </a>
-  <a href="index.html">
-    <div class="tabbar-item">
-      <img src="https://img.icons8.com/material-outlined/24/000000/home.png" />
-      <span>我的</span>
-    </div>
-  </a>
-</div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 
-<script>
-  window.onload = function () {
-    var tabbar = document.getElementsByClassName("tabbar-item");
+<body>
+
+  <style>
+    .tabbar {
+      height: 50px;
+      width: 100vw;
+      background-color: #f5f5f5;
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0px -2px 20px 2px rgba(165, 165, 165, 0.34)
+    }
+
+    .tabbar .tabbar-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #333;
+    }
+  </style>
+  <div class="tabbar">
+    <a href="index.html">
+      <div class="tabbar-item">
+        <img src="https://img.icons8.com/material-outlined/24/000000/home.png" width="32" height="32" />
+        <span>首页</span>
+      </div>
+    </a>
+    <!-- <a href="index2.html">
+      <div class="tabbar-item">
+        <img src="https://img.icons8.com/material-outlined/24/000000/home.png" />
+        <span>社区</span>
+      </div>
+    </a> -->
+    <a href="my.html">
+      <div class="tabbar-item">
+        <img src="https://img.icons8.com/material-outlined/24/000000/home.png" />
+        <span>我的</span>
+      </div>
+    </a>
+  </div>
+
+  <script>
+    // window.onload = function () {
+    var tabbar = document.querySelectorAll(".tabbar-item");
+    console.log(' ', tabbar)
     for (var i = 0; i < tabbar.length; i++) {
       console.log(" ", i);
       tabbar[i].onclick = function () {
@@ -52,5 +64,8 @@
         this.className = "tabbar-item tabbar-item-active";
       };
     }
-  };
-</script>
+    // };
+  </script>
+</body>
+
+</html>
