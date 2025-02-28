@@ -12,6 +12,17 @@ function loadTabbar(placeholderId, tabbarPath) {
       const placeholder = document.getElementById(placeholderId);
       if (placeholder) {
         placeholder.innerHTML = data;
+        const homeIcon = document.querySelector("#home-icon");
+        const myIcon = document.querySelector("#my-icon");
+        const pathname = location.pathname;
+        console.log(" ", pathname);
+        if (pathname.includes("my")) {
+          homeIcon.src = "/assets/home.png";
+          myIcon.src = "/assets/my-active.png";
+        } else {
+          homeIcon.src = "/assets/home-active.png";
+          myIcon.src = "/assets/my.png";
+        }
       } else {
         console.error(`占位符元素 #${placeholderId} 未找到`);
       }
