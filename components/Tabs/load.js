@@ -49,7 +49,7 @@ function loadTabs(placeholderId, tabbarPath) {
           const hasOneImage = i.Image.url_list.length >= 1;
 
           return `
-            <div class="list-card w-100vw px-[10px]">
+            <div class="list-card w-100vw">
               <a href="${i.Url}">
                 ${hasThreeImages ? `
                   <div class="list-card-header">${i.Title}</div>
@@ -59,9 +59,9 @@ function loadTabs(placeholderId, tabbarPath) {
                     `).join('')}
                   </div>
                 ` : hasOneImage ? `
-                  <div class="list-card-header flex-between-center">
+                  <div class="list-card-header flex justify-between">
                     <div class="flex flex-col justify-between flex-1 mr-[6px]">
-                      <div class="tru-2 min-h-[44px]">${i.Title}</div>
+                      <div class="tru-2 min-h-[46px]">${i.Title}</div>
                       <div class="text-[#999] text-[12px]">
                         <span class="flex items-center">
                           12小时前，52评论，99
@@ -74,7 +74,7 @@ function loadTabs(placeholderId, tabbarPath) {
                     `).join('')}
                   </div>
                 ` : `
-                  <div class="list-card-header flex-between-center">
+                  <div class="list-card-header flex justify-between">
                     <div class="flex flex-col justify-between flex-1">
                       <div class="tru-2">${i.Title}</div>
                       <div class="text-[#999] text-[12px] flex-between-center">
