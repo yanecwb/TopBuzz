@@ -1,132 +1,131 @@
 :root {
     font-size: 16px;
-  }
+}
 
-  body {
+body {
     font-family: "Arial", sans-serif;
     background-color: white;
-  }
+}
 
-  .flex-center {
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .flex-between-center {
+.flex-between-center {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
-  /* Header */
-  .header {
+/* Header */
+.header {
     padding: 0.3rem;
     background: #000;
     color: #fff;
     text-align: center;
-  }
+}
 
-  .header h1 {
+.header h1 {
     font-size: 0.8rem;
     margin-bottom: 0.2rem;
-  }
+}
 
-  .header p {
+.header p {
     font-size: 0.6rem;
     opacity: 0.8;
-  }
+}
 
-  /* 轮播图 */
-  .swiper {
+/* 轮播图 */
+.swiper {
     width: 100%;
-    height: 30vh;
-  }
+    height: 26vh;
+}
 
-  .swiper-slide img {
+.swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 
-  /* 分类导航 */
-  .category {
+/* 分类导航 */
+.category {
     display: flex;
     justify-content: space-between;
     /* padding: 1rem; */
     /* padding: 0.9rem; */
     width: 100vw;
     background: white;
-  }
+}
 
-  .category div i {
+.category div i {
     font-size: 1.3rem;
     color: #f66b6b;
-  }
+}
 
-  .category div p {
+.category div p {
     font-size: 0.8rem;
     margin-top: 0.3rem;
-  }
+}
 
-  /* 内容卡片 */
-  .grid {
+/* 内容卡片 */
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 0.6rem;
     /* padding: 0 0.7rem; */
-  }
+}
 
-  .grid .card {
+.grid .card {
     background: white;
     /* border-radius: 10px; */
     overflow: hidden;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-    text-align: center;
-  }
+}
 
-  .grid .card img {
+.grid .card img {
     object-fit: cover;
-  }
+}
 
-  .grid .card h3 {
+.grid .card h3 {
     font-size: 1rem;
     margin: 0.5rem;
-  }
+}
 
-  .grid .card p {
+.grid .card p {
     font-size: 0.9rem;
     color: #666;
     padding: 0 0.5rem 1rem;
-  }
+}
 
-  /* 列表卡片start */
-  .list-card a {
+/* 列表卡片start */
+.list-card a {
     padding: 0.4rem 0.7rem;
     border-bottom: 1px solid #e8eaec;
-  }
-  .list-card a:last-child{
+}
+.list-card a:last-child {
     border-bottom: none;
-  }
+}
 
-  .list-card:last-child{
+.list-card:last-child {
     padding-bottom: 56px;
-  }
+}
 
-  .list-card .list-card-header {
+.list-card .list-card-header {
     font-size: 15px;
     line-height: 22px;
     color: #000;
-  }
+}
 
-  /* Footer */
-  .footer {
+/* Footer */
+.footer {
     text-align: center;
     padding: 1rem;
     background: #fff;
-  }
+}
 
-  .footer button {
+.footer button {
     background: #f66b6b;
     color: white;
     border: none;
@@ -136,45 +135,45 @@
     cursor: pointer;
     width: 80%;
     max-width: 300px;
-  }
+}
 
-  .footer button:hover {
+.footer button:hover {
     background: #d24d4d;
-  }
+}
 
-  /* 媒体查询适配不同屏幕 */
-  @media (min-width: 768px) {
+/* 媒体查询适配不同屏幕 */
+@media (min-width: 768px) {
     .swiper {
-      height: 50vh;
+        height: 50vh;
     }
 
     .category div i {
-      font-size: 2rem;
+        font-size: 2rem;
     }
 
     .category div p {
-      font-size: 1rem;
+        font-size: 1rem;
     }
 
     .grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .grid .card img {
-      max-height: 20vh;
+        max-height: 20vh;
     }
-  }
+}
 
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     .swiper {
-      height: 60vh;
+        height: 60vh;
     }
 
     .grid {
-      grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 
     .footer button {
-      max-width: 400px;
+        max-width: 400px;
     }
-  }
+}

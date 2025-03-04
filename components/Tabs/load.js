@@ -34,13 +34,12 @@ function loadTabs(placeholderId, tabbarPath) {
 
         // 生成内容
         const newsList = await fetchNewsList();
-        
+
         // 生成卡片
         const cards = newsList.splice(0, 2).map(i => `
           <div class="card">
             <img src="${i.Image.url_list[0].url}" alt="编辑精选" class="w-full h-[126px]" />
             <h3>${i.Title}</h3>
-            <p>${i.QueryWord}</p>
           </div>
         `).join('');
 
@@ -48,7 +47,7 @@ function loadTabs(placeholderId, tabbarPath) {
         const items = newsList.map(i => {
           const hasThreeImages = i.Image.url_list.length >= 3;
           const hasOneImage = i.Image.url_list.length >= 1;
-          
+
           return `
             <div class="list-card w-100vw px-[10px]">
               <a href="${i.Url}">
@@ -70,7 +69,7 @@ function loadTabs(placeholderId, tabbarPath) {
                         </span>
                       </div>
                     </div>
-                    ${i.Image.url_list.slice(0,1).map(img => `
+                    ${i.Image.url_list.slice(0, 1).map(img => `
                       <img src="${img.url}" class="object-cover rounded-md w-[110px] h-[76px]" />
                     `).join('')}
                   </div>
@@ -103,7 +102,7 @@ function loadTabs(placeholderId, tabbarPath) {
       switchTab($tabs.first(), 0);
 
       // 绑定点击事件
-      $tabs.on('click', function() {
+      $tabs.on('click', function () {
         const index = $(this).index();
         switchTab($(this), index);
       });
@@ -116,6 +115,6 @@ function loadTabs(placeholderId, tabbarPath) {
 }
 
 // 自动加载
-$(function() {
+$(function () {
   loadTabs('tabs-placeholder', '/components/Tabs/index.html');
 });
