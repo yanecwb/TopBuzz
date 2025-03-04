@@ -10,10 +10,17 @@
     display: flex;
     list-style: none;
     border-bottom: 2px solid #eee;
+    width: 100%;
+    overflow: auto;
+    /* margin-bottom: 10px; */
+  }
+
+  .tabs-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .tabs-nav li {
-    padding: 15px 30px;
+    padding: 15px 26px;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -25,7 +32,6 @@
 
   .tabs-nav li.active::after {
     content: "";
-    position: absolute;
     bottom: -2px;
     left: 0;
     width: 100%;
@@ -35,15 +41,12 @@
 
   /* 内容区域 */
   .tabs-content {
-    position: relative;
-    min-height: 300px;
-    overflow: hidden;
+    padding-bottom: 60px;
   }
 
   .tab-pane {
     position: absolute;
     width: 100%;
-    padding: 20px;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s ease;
@@ -56,24 +59,23 @@
     visibility: visible;
   }
 </style>
-<div class="tabs-container">
+<div class="tabs-container w-full">
   <!-- 导航标签 -->
   <ul class="tabs-nav">
-    <li class="active">标签1</li>
-    <li>标签2</li>
-    <li>标签3</li>
+    <li class="active">Web3</li>
+    <li>technology</li>
+    <li>entertainment</li>
+    <li>international</li>
   </ul>
 
   <!-- 内容区域 -->
   <div class="tabs-content">
     <div class="tab-pane active">
-      <h2>内容1</h2>
     </div>
     <div class="tab-pane">
-      <h2>内容2</h2>
     </div>
     <div class="tab-pane">
-      <h2>内容3</h2>
     </div>
+    <div class="tab-pane">
   </div>
 </div>

@@ -1,342 +1,83 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>首页</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/format.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4" defer></script>
+    <!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>首页</title>
-  <link rel="stylesheet" href="./css/format.css" />
-  <link rel="stylesheet" href="./css/common.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/@tailwindcss/browser@4" defer></script>
-  <!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
-  <style>
-    :root {
-      font-size: 16px;
-    }
-
-    body {
-      font-family: "Arial", sans-serif;
-      background-color: white;
-      padding-bottom: 60px;
-    }
-
-    .flex-center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .flex-between-center {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Header */
-    .header {
-      padding: 0.3rem;
-      background: #000;
-      color: #fff;
-      text-align: center;
-    }
-
-    .header h1 {
-      font-size: 0.8rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .header p {
-      font-size: 0.6rem;
-      opacity: 0.8;
-    }
-
-    /* 轮播图 */
-    .swiper {
-      width: 100%;
-      height: 30vh;
-    }
-
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* 分类导航 */
-    .category {
-      display: flex;
-      justify-content: space-between;
-      /* padding: 1rem; */
-      padding: 0.9rem;
-      background: white;
-    }
-
-    .category div {
-      text-align: center;
-    }
-
-    .category div i {
-      font-size: 1.3rem;
-      color: #f66b6b;
-    }
-
-    .category div p {
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-    }
-
-    /* 内容卡片 */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      padding: 0 0.7rem;
-    }
-
-    .grid .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .grid .card img {
-      width: 100%;
-      height: auto;
-      max-height: 15vh;
-      object-fit: cover;
-    }
-
-    .grid .card h3 {
-      font-size: 1rem;
-      margin: 0.5rem;
-    }
-
-    .grid .card p {
-      font-size: 0.9rem;
-      color: #666;
-      padding: 0 0.5rem 1rem;
-    }
-
-    /* 列表卡片start */
-    .list-card {
-      padding: 0.4rem 1rem;
-      border-bottom: 1px solid #e8eaec;
-    }
-
-    .list-card .list-card-header {
-      font-size: 16px;
-      line-height: 22px;
-      color: #000;
-    }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 1rem;
-      background: #fff;
-    }
-
-    .footer button {
-      background: #f66b6b;
-      color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 80%;
-      max-width: 300px;
-    }
-
-    .footer button:hover {
-      background: #d24d4d;
-    }
-
-    /* 媒体查询适配不同屏幕 */
-    @media (min-width: 768px) {
-      .swiper {
-        height: 50vh;
-      }
-
-      .category div i {
-        font-size: 2rem;
-      }
-
-      .category div p {
-        font-size: 1rem;
-      }
-
-      .grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-
-      .grid .card img {
-        max-height: 20vh;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .swiper {
-        height: 60vh;
-      }
-
-      .grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .footer button {
-        max-width: 400px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Header -->
-  <div class="header">
-    <h1>这些土味仪式感正在消失</h1>
-    <p>困困商圈 45.6万阅</p>
-  </div>
-
-  <!-- 轮播图 -->
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="https://images4.alphacoders.com/134/thumbbig-1347937.webp" alt="Banner 1" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://images5.alphacoders.com/564/thumbbig-564931.webp" alt="Banner 2" />
-      </div>
-      <div class="swiper-slide">
-        <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="Banner 3" />
-      </div>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <h1>这些土味仪式感正在消失</h1>
+      <p>困困商圈 45.6万阅</p>
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
 
-  <!-- 分类导航 -->
-  <div class="category">
-    <div id="tabs-placeholder">
-
-    </div>
-    <!-- <div>
-      <i class="fa fa-tv"></i>
-      <a href="/index2.html">
-        <p>推荐</p>
-      </a>
-    </div>
-    <div>
-      <i class="fa fa-film"></i>
-      <p>币圈</p>
-    </div>
-    <div>
-      <i class="fa fa-briefcase"></i>
-      <p>科技、AI</p>
-    </div>
-    <div>
-      <i class="fa fa-flask"></i>
-      <p>生活</p>
-    </div>
-    <div>
-      <i class="fa fa-graduation-cap"></i>
-      <p>国际</p>
-    </div> -->
-  </div>
-
-  <!-- 内容卡片 -->
-  <div class="grid">
-    <div class="card">
-      <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="编辑精选" />
-      <h3>编辑精选</h3>
-      <p>精选内容等你来看</p>
-    </div>
-    <div class="card">
-      <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="活动主题" />
-      <h3>活动主题</h3>
-      <p>参与活动赢取奖励</p>
-    </div>
-  </div>
-
-  <!-- 列表卡片 -->
-  <div>
-    <!-- 三图 -->
-    <div class="list-card w-100vw px-[10px]">
-      <div class="list-card-header">
-        中国作协副主席评《哪吒2》：低俗艺术，污染神话！张艺谋被牵连
-      </div>
-      <div class="flex justify-between items-center !m-[2px]">
-        <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" class="w-[28vw] rounded-md" alt="" />
-        <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" class="w-[28vw] rounded-md" alt="" />
-        <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" class="w-[28vw] rounded-md" alt="" />
-      </div>
-      <div class="text-[#999] text-[12px] flex-between-center">
-        <span>12小时前，52评论</span>
-        <div class="flex items-center">
-          99<img src="/assets/like.png" width="15" height="15" />
+    <!-- 轮播图 -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://images4.alphacoders.com/134/thumbbig-1347937.webp"
+            alt="Banner 1"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images5.alphacoders.com/564/thumbbig-564931.webp"
+            alt="Banner 2"
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://images5.alphacoders.com/463/thumbbig-463438.webp"
+            alt="Banner 3"
+          />
         </div>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
 
-    <!-- 一图 -->
-    <div class="list-card w-100vw px-[10px]">
-      <div class="list-card-header flex-between-center">
-        <div class="flex flex-col justify-between flex-1 mr-[6px]">
-          <div class="tru-2">
-            中国作协副主席评《哪吒2》：低俗艺术，污染神话！张艺谋被牵连中国作协副主席评《哪吒2》：低俗艺术，污染神话！张艺谋被牵连
-          </div>
-          <div class="text-[#999] text-[12px] flex-between-center">
-            <span>12小时前，52评论</span><span class="flex items-center">99<img src="/assets/like.png" width="15"
-                height="15" />
-            </span>
-          </div>
-        </div>
-        <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" class="w-[28vw] rounded-md" alt="" />
-      </div>
+    <!-- 分类导航 -->
+    <div class="category">
+      <div id="tabs-placeholder" class="w-full"></div>
     </div>
 
-    <!-- 无图 -->
-    <div class="list-card w-100vw px-[10px]">
-      <div class="list-card-header flex-between-center">
-        <div class="flex flex-col justify-between flex-1">
-          <div class="tru-2">
-            中国作协副主席评《哪吒2》：低俗艺术，污染神话！张艺谋被牵连中国作协副主席评《哪吒2》：低俗艺术，污染神话！张艺谋被牵连
-          </div>
-          <div class="text-[#999] text-[12px] flex-between-center">
-            <span>12小时前，52评论</span><span class="flex items-center">99<img src="/assets/like.png" width="15"
-                height="15" />
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Footer -->
-  <!-- <div class="footer hidden">
+    <!-- Footer -->
+    <!-- <div class="footer hidden">
     <button>我要参与</button>
   </div> -->
 
-  <div id="tabbar-placeholder"></div>
+    <div id="tabbar-placeholder"></div>
 
-  <!-- Swiper 轮播图 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="/components/Tabbar/load.js"></script>
-  <script src="/components/Tabs/load.js"></script>
-  <script>
-    var swiper = new Swiper(".swiper", {
-      loop: true,
-      pagination: { el: ".swiper-pagination", clickable: true },
-      autoplay: { delay: 3000, disableOnInteraction: false },
-    });
-  </script>
-  <script>
-            // 獲取新聞數據
-  </script>
-</body>
-
+    <!-- Swiper 轮播图 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/components/Tabbar/load.js"></script>
+    <script src="/components/Tabs/load.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper", {
+        loop: true,
+        pagination: { el: ".swiper-pagination", clickable: true },
+        autoplay: { delay: 3000, disableOnInteraction: false },
+      });
+    </script>
+    <script>
+      // 獲取新聞數據
+    </script>
+  </body>
 </html>
