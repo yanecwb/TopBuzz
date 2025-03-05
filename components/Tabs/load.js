@@ -38,8 +38,10 @@ function loadTabs(placeholderId, tabbarPath) {
         // 生成卡片
         const cards = newsList.splice(0, 2).map(i => `
           <div class="card">
-            <img src="${i.Image.url_list[0].url}" alt="编辑精选" class="w-full h-[126px]" />
-            <h3>${i.Title}</h3>
+            <a href="${i.Url}">
+              <img src="${i.Image.url_list[0].url}" alt="编辑精选" class="w-full h-[126px]" />
+              <h3>${i.Title}</h3>
+            </a>
           </div>
         `).join('');
 
