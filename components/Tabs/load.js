@@ -62,30 +62,29 @@ function loadTabs(placeholderId, tabbarPath) {
 
               return `
             <div class="list-card w-100vw">
-              <a href="${i.Url}">
-                ${
-                  hasThreeImages
-                    ? `
+              <a href="./details.html?id=${i.ClusterId}">
+                ${hasThreeImages
+                  ? `
                   <div class="list-card-header">${i.Title}</div>
                   <div class="flex justify-start items-center !m-[2px]">
                     ${i.Image.url_list
-                      .map(
-                        (img) => `
+                    .map(
+                      (img) => `
                       <img src="${img.url}" class="object-cover rounded-md w-[110px] h-[76px]" />
                     `
-                      )
-                      .join("")}
+                    )
+                    .join("")}
                   </div>
                 `
-                    : hasOneImage
+                  : hasOneImage
                     ? `
                   <div class="list-card-header flex justify-between">
                     <div class="flex flex-col justify-between flex-1 mr-[6px]">
                       <div class="tru-2 min-h-[46px]">${i.Title}</div>
                       <div class="text-[#999] text-[12px]">
-                        <span class="flex items-center">
-                          12小时前，52评论，99
-                          <img src="/assets/like.png" width="14" height="14" class="inline-block" />
+                        <span class="flex items-center justify-between">
+                          12小时前，52评论
+                          <span class='flex items-center justify-between'>99 <img src="/assets/like.png" width="12" height="12" class="inline-block ml-[2px]" /></span>
                         </span>
                       </div>
                     </div>
@@ -137,21 +136,7 @@ function loadTabs(placeholderId, tabbarPath) {
       } else {
         console.error(`占位符元素 #${placeholderId} 未找到`);
       }
-      console.log(" ", newsList.splice(0, 3));
-      console.log(
-        " ",
-        $(".swiper").html(`
-     <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img
-            src="https://images4.alphacoders.com/134/thumbbig-1347937.webp"
-            alt="Banner 1"
-          />
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    `)
-      );
+
     })
     .fail((error) => {
       console.error("加载 Tabbar 失败:", error);

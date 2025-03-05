@@ -1,63 +1,86 @@
 <!DOCTYPE html>
 <html lang="cn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
-    />
-    <title>嘿嘿嘿首页</title>
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/format.css" />
-    <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/@tailwindcss/browser@4" defer></script>
-    <!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
-  </head>
 
-  <body>
-    <!-- Header -->
-    <div class="header">
-      <h1>这些土味仪式感正在消失</h1>
-      <p>困困商圈 45.6万阅</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>首页</title>
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/format.css" />
+  <link rel="stylesheet" href="./css/common.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/loading.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/@tailwindcss/browser@4" defer></script>
+  <!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
+</head>
+
+<body>
+  <!-- Header -->
+  <!-- 广播 -->
+  <!-- <div class="broadcast">
+    <h1>这些土味仪式感正在消失</h1>
+    <p>困困商圈 45.6万阅</p>
+  </div> -->
+
+  <!-- 轮播图 -->
+  <div class="swiper">
+
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="header">
+          <h1>这些土味仪式感正在消失</h1>
+          <p>困困商圈 45.6万阅</p>
+        </div>
+        <img src="https://images4.alphacoders.com/134/thumbbig-1347937.webp" alt="Banner 1" />
+      </div>
+      <div class="swiper-slide">
+        <div class="header">
+          <h1>这些土味仪式感正在消失2</h1>
+          <p>困困商圈 45.6万阅</p>
+        </div>
+        <img src="https://images5.alphacoders.com/564/thumbbig-564931.webp" alt="Banner 2" />
+      </div>
+      <div class="swiper-slide">
+        <div class="header">
+          <h1>这些土味仪式感正在消失2</h1>
+          <p>困困商圈 45.6万阅</p>
+        </div>
+        <img src="https://images5.alphacoders.com/463/thumbbig-463438.webp" alt="Banner 3" />
+      </div>
     </div>
+    <div class="swiper-pagination"></div>
+  </div>
 
-    <!-- 轮播图 -->
-    <div class="swiper">
-     
-    </div>
-
-    <!-- 分类导航 -->
-    <div class="category">
-      <div id="tabs-placeholder" class="w-full"></div>
-    </div>
+  <!-- 分类导航 -->
+  <div class="category">
+    <div id="tabs-placeholder" class="w-full"></div>
+  </div>
 
 
-    <!-- Footer -->
-    <!-- <div class="footer hidden">
+  <!-- Footer -->
+  <!-- <div class="footer hidden">
     <button>我要参与</button>
   </div> -->
 
-    <div id="tabbar-placeholder"></div>
+  <div id="tabbar-placeholder"></div>
 
-    <!-- Swiper 轮播图 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="/components/Tabbar/load.js"></script>
-    <script src="/components/Tabs/load.js"></script>
-    <script>
-      var swiper = new Swiper(".swiper", {
-        loop: true,
-        pagination: { el: ".swiper-pagination", clickable: true },
-        autoplay: { delay: 3000, disableOnInteraction: false },
-      });
-    </script>
-    <script>
+  <!-- Swiper 轮播图 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="/components/Tabbar/load.js"></script>
+  <script src="/components/Tabs/load.js"></script>
+  <script>
+    var swiper = new Swiper(".swiper", {
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      autoplay: { delay: 3000, disableOnInteraction: false },
+    });
+  </script>
+  <script>
       // 獲取新聞數據
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
