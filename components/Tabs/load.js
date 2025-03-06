@@ -45,7 +45,7 @@ function loadTabs(placeholderId, tabbarPath) {
             .map(
               (i) => `
           <div class="card">
-            <a href="${i.Url}">
+            <a href="./details.html?id=${i.ClusterId}">
               <img src="${i.Image.url_list[0].url}" alt="编辑精选" class="w-full h-[126px]" />
               <h3>${i.Title}</h3>
             </a>
