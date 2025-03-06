@@ -3,6 +3,11 @@
     src: url("/assets/font/Baloo2-Bold.C_zcAYNl.ttf");
     font-display: swap;
 }
+@font-face {
+    font-family: "BBC Reith Serif";
+    src: url("/assets/font/BBCReithSans_W_Rg.woff2");
+    font-display: swap;
+}
 body,
 h1,
 h2,
@@ -30,7 +35,7 @@ th,
 td {
     margin: 0;
     padding: 0;
-    font-family: "Baloo2-Bold", sans-serif;
+    font-family:"BBC Reith Serif", serif;
 }
 body,
 button,
