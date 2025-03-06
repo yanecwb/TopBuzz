@@ -101,6 +101,13 @@
         WebApp: { BackButton },
       } = window.Telegram;
       BackButton.show();
+      BackButton.onClick(() => {
+        if (window?.history.length > 1) {
+          window.history.back();
+        } else {
+          router.replace("/");
+        }
+      });
     </script>
   </body>
 </html>
