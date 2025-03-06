@@ -8,6 +8,9 @@
     src: url("/assets/font/BBCReithSans_W_Rg.woff2");
     font-display: swap;
 }
+body{
+    background-color: white;
+}
 body,
 h1,
 h2,

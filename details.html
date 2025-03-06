@@ -10,8 +10,34 @@
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/format.css" />
     <link rel="stylesheet" href="./css/common.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4" defer></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@telegram-apps/sdk@latest/dist/index.js" type="module"></script> -->
+    <script src="https://unpkg.com/@telegram-apps/sdk"></script>
+
+    <style>
+      .comment_box {
+        transform: scale(0);
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        /* border-radius: 10px; */
+      }
+      .comment_box .mask {
+        display: inline-block;
+        width: 100%;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: -1;
+        position: absolute;
+        top: -50px;
+        left: 0;
+      }
+
+      .comment_box.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+    </style>
   </head>
 
   <body class="bg-white">
@@ -81,25 +107,186 @@
       class="py-2 px-10 w-screen h-[50px] fixed bottom-0 bg-white flex justify-between items-center"
       style="box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5)"
     >
-      <div class="flex items-center text-[#666] text-[14px]">
-        <img src="/assets/share.png" class="w-[21px]" alt="" />
+      <div
+        class="flex items-center text-[#666] text-[14px] cursor-pointer"
+        id="shareBtn"
+      >
+        <img src="/assets/share2.png" class="w-[22px]" alt="" />
         <div class="h-[18px] ml-[3px]">Share</div>
       </div>
-      <div class="flex items-center text-[#666] text-[14px]">
-        <img src="/assets/comment.png" class="w-[21px]" alt="" />
+      <div
+        class="flex items-center text-[#666] text-[14px] cursor-pointer"
+        id="commentBtn"
+      >
+        <img src="/assets/comment.png" class="w-[22px]" alt="" />
         <div class="h-[18px] ml-[3px]">1776</div>
       </div>
-      <div class="flex items-center text-[#666] text-[14px]">
-        <img src="/assets/like.png" class="w-[21px]" alt="" />
+      <div
+        class="flex items-center text-[#666] text-[14px] cursor-pointer"
+        id="likeBtn"
+      >
+        <img src="/assets/like.png" class="w-[22px]" alt="" />
         <div class="h-[18px] ml-[3px]">521</div>
       </div>
     </div>
 
+    <!-- 評論區 -->
+    <div
+      class="w-screen h-screen fixed top-0 left-0 opacity-0 p-3 bg-white overflow-auto pb-[50px] comment_box"
+    >
+      <div class="mask"></div>
+      <div class="z-[10] relative min-h-full bg-white">
+        <div class="flex justify-between items-center">
+          <div class="font-bold text-[16px]">All comments</div>
+          <div>
+            <span class="text-blue-300">Hottest</span> | <span>Newest</span> |
+            <span id="closeComment">close</span>
+          </div>
+        </div>
+        <div class="comment_list mt-4">
+          <div class="comment_list_item pl-[40px] relative pb-4">
+            <div>
+              <img
+                src="https://avatars.githubusercontent.com/u/46313107?v=4"
+                class="w-[34px] h-[34px] rounded-full top-0 left-0 absolute"
+                alt=""
+              />
+              <div>
+                <div>嘿嘿嘿</div>
+                <div>2025/03/06</div>
+              </div>
+            </div>
+            <div class="mt-1">
+              The small but influential Gulf state is a key US ally in the
+              region. It hosts a major American air base and has handled many
+              delicate political negotiations, including with Iran, the Taliban
+              and Russia.
+            </div>
+          </div>
+          <div class="comment_list_item pl-[40px] relative pb-5">
+            <div>
+              <img
+                src="https://avatars.githubusercontent.com/u/46313107?v=4"
+                class="w-[34px] h-[34px] rounded-full top-0 left-0 absolute"
+                alt=""
+              />
+              <div>
+                <div>嘿嘿嘿</div>
+                <div>2025/03/06</div>
+              </div>
+            </div>
+            <div class="mt-1">
+              The small but influential Gulf state is a key US ally in the
+              region. It hosts a major American air base and has handled many
+              delicate political negotiations, including with Iran, the Taliban
+              and Russia.
+            </div>
+          </div>
+          <div class="comment_list_item pl-[40px] relative pb-5">
+            <div>
+              <img
+                src="https://avatars.githubusercontent.com/u/46313107?v=4"
+                class="w-[34px] h-[34px] rounded-full top-0 left-0 absolute"
+                alt=""
+              />
+              <div>
+                <div>嘿嘿嘿</div>
+                <div>2025/03/06</div>
+              </div>
+            </div>
+            <div class="mt-1">
+              The small but influential Gulf state is a key US ally in the
+              region. It hosts a major American air base and has handled many
+              delicate political negotiations, including with Iran, the Taliban
+              and Russia.
+            </div>
+          </div>
+          <div class="comment_list_item pl-[40px] relative pb-5">
+            <div>
+              <img
+                src="https://avatars.githubusercontent.com/u/46313107?v=4"
+                class="w-[34px] h-[34px] rounded-full top-0 left-0 absolute"
+                alt=""
+              />
+              <div>
+                <div>嘿嘿嘿</div>
+                <div>2025/03/06</div>
+              </div>
+            </div>
+            <div class="mt-1">
+              The small but influential Gulf state is a key US ally in the
+              region. It hosts a major American air base and has handled many
+              delicate political negotiations, including with Iran, the Taliban
+              and Russia.
+            </div>
+          </div>
+          <div class="comment_list_item pl-[40px] relative pb-5">
+            <div>
+              <img
+                src="https://avatars.githubusercontent.com/u/46313107?v=4"
+                class="w-[34px] h-[34px] rounded-full top-0 left-0 absolute"
+                alt=""
+              />
+              <div>
+                <div>嘿嘿嘿</div>
+                <div>2025/03/06</div>
+              </div>
+            </div>
+            <div class="mt-1">
+              The small but influential Gulf state is a key US ally in the
+              region. It hosts a major American air base and has handled many
+              delicate political negotiations, including with Iran, the Taliban
+              and Russia.
+            </div>
+          </div>
+          <div class="comment_list_item pl-[40px] relative pb-5">
+            <div>
+              <img
+                src="https://avatars.githubusercontent.com/u/46313107?v=4"
+                class="w-[34px] h-[34px] rounded-full top-0 left-0 absolute"
+                alt=""
+              />
+              <div>
+                <div>嘿嘿嘿</div>
+                <div>2025/03/06</div>
+              </div>
+            </div>
+            <div class="mt-1">
+              The small but influential Gulf state is a key US ally in the
+              region. It hosts a major American air base and has handled many
+              delicate political negotiations, including with Iran, the Taliban
+              and Russia.
+            </div>
+          </div>
+          <div class="comment_list_item pl-[40px] relative pb-5">
+            <div>
+              <img
+                src="https://avatars.githubusercontent.com/u/46313107?v=4"
+                class="w-[34px] h-[34px] rounded-full top-0 left-0 absolute"
+                alt=""
+              />
+              <div>
+                <div>嘿嘿嘿</div>
+                <div>2025/03/06</div>
+              </div>
+            </div>
+            <div class="mt-1">
+              The small but influential Gulf state is a key US ally in the
+              region. It hosts a major American air base and has handled many
+              delicate political negotiations, including with Iran, the Taliban
+              and Russia.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
-      // TMA
       const {
-        WebApp: { BackButton },
+        WebApp: { BackButton, initDataUnsafe },
+        // WebView: { postEvent },
       } = window.Telegram;
+      // TMA
       BackButton.show();
       BackButton.onClick(() => {
         if (window?.history.length > 1) {
@@ -107,6 +294,61 @@
         } else {
           router.replace("/");
         }
+      });
+      // SHARE
+      const openTgLink = (url) => {
+        TelegramWebviewProxy.postEvent("web_app_open_tg_link", {
+          path_full: url,
+        });
+      };
+      const handleInvite = () => {
+        const desc = ``;
+        const url = `/share/url?url=${encodeURIComponent(
+          "https://t.me/HeadlinesNews_bot?startapp=Invite"
+        )}&text=${encodeURIComponent(desc)}`;
+        console.log(" ", url);
+        openTgLink(url);
+      };
+      console.log(initDataUnsafe);
+
+      $("#shareBtn").click(function () {
+        handleInvite();
+      });
+
+      //
+      $("#commentBtn").click(function () {
+        let x = event.clientX;
+        let y = event.clientY;
+
+        // 设置初始 transform-origin
+        $(".comment_box").css({
+          "transform-origin": `${x}px ${y}px`,
+          display: "block",
+          // top: "50px",
+        });
+
+        // 添加 active 类，放大显示
+        setTimeout(() => {
+          document.body.style.overflow = 'hidden';
+          $(".comment_box").addClass("active");
+          $(".mask").css("display", "inline-block");
+        }, 10);
+      });
+      function closeComment() {
+        document.body.style.overflow = '';
+        $(".mask").css("display", "none");
+        $(".comment_box").removeClass("active");
+
+        // 过渡动画完成后隐藏
+        setTimeout(() => {
+          $(".comment_box").css("display", "none");
+        }, 300);
+      }
+      $(".mask").click(closeComment);
+      $("#closeComment").click(closeComment);
+
+      $("#likeBtn").click(function () {
+        alert("点赞");
       });
     </script>
   </body>
