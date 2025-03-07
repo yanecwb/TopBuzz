@@ -37,6 +37,53 @@
         opacity: 1;
         transform: scale(1);
       }
+
+      .comment_list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .el-input__inner {
+        appearance: none;
+        background-color: rgb(255, 255, 255);
+        background-image: none;
+        box-sizing: border-box;
+        color: rgb(96, 98, 102);
+        display: inline-block;
+        font-size: inherit;
+        height: 100%;
+        line-height: 50px;
+        width: 80%;
+        border-radius: 50px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(220, 223, 230);
+        border-image: initial;
+        outline: none;
+        padding: 0px 15px;
+        transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+      .tooltip-container {
+        background: rgb(3, 169, 244);
+        background: linear-gradient(
+          138deg,
+          rgba(3, 169, 244, 1) 15%,
+          rgba(63, 180, 233, 1) 65%
+        );
+        position: relative;
+        cursor: pointer;
+        height: 44px;
+        width: 44px;
+        border-radius: 100%;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+
+      .tooltip-container svg {
+ 
+        fill: #fff;
+      }
+
     </style>
   </head>
 
@@ -132,19 +179,20 @@
 
     <!-- 評論區 -->
     <div
-      class="w-screen h-screen fixed top-0 left-0 opacity-0 p-3 bg-white overflow-auto pb-[50px] comment_box"
+      class="w-screen h-screen fixed top-0 left-0 opacity-0 p-3 bg-white pb-[50px] comment_box"
     >
       <div class="mask"></div>
-      <div class="z-[10] relative min-h-full bg-white">
+      <div class="relative h-full bg-white">
         <div class="flex justify-between items-center">
           <div class="font-bold text-[16px]">All comments</div>
           <div>
-            <span class="text-blue-300 cursor-pointer">Hottest</span> | <span class="cursor-pointer">Newest</span> |
+            <span class="text-blue-300 cursor-pointer">Hottest</span> |
+            <span class="cursor-pointer">Newest</span> |
             <span class="cursor-pointer" id="closeComment">close</span>
           </div>
         </div>
-        <div class="comment_list mt-4">
-          <div class="comment_list_item pl-[40px] relative pb-4">
+        <div class="comment_list h-full mt-4 pb-10 overflow-auto">
+          <div class="comment_list_item pl-[40px] relative pb-5">
             <div>
               <img
                 src="https://avatars.githubusercontent.com/u/46313107?v=4"
@@ -279,6 +327,31 @@
           </div>
         </div>
       </div>
+      <div
+        class="fixed w-screen h-[60px] bottom-0 -ml-[12px] p-2 bg-white flex"
+        style="box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5)"
+      >
+        <input
+          type="text"
+          autocomplete="off"
+          placeholder="This is a comment section, not a no-man's land"
+          class="el-input__inner flex-1 !mr-[10px]"
+        />
+        <div class="tooltip-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              class="bi bi-send-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"
+              ></path>
+            </svg>
+        </div>
+        </button>
+      </div>
     </div>
 
     <script>
@@ -329,13 +402,13 @@
 
         // 添加 active 类，放大显示
         setTimeout(() => {
-          document.body.style.overflow = 'hidden';
+          document.body.style.overflow = "hidden";
           $(".comment_box").addClass("active");
           $(".mask").css("display", "inline-block");
         }, 10);
       });
       function closeComment() {
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
         $(".mask").css("display", "none");
         $(".comment_box").removeClass("active");
 
