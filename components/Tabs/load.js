@@ -8,12 +8,12 @@ async function fetchNewsList() {
     //   'https://newsapi.org/v2/everything?q=Apple&from=2025-03-06&sortBy=popularity&apiKey=2a8213bad8204df2a0129b22909fb947'
     //   // "https://api.gamestrial.com/topBuzz_new_list?origin=toutiao_pc&_signature=_02B4Z6wo00f01-9ROewAAIDCMArKoWwjmqvvdT1AAJwcS3u0cjSp3jqACjaQEHIw5VmUbe3RTMjkdJF3jm0BF0mDYUpCuzdvyN6EUDftDB2cqOIP5pQTD22tUKTntU85-FBHLQqY-IufddWi0c"
     // );
-    const {articles} = await $.ajax({
-      url: 'https://newsapi.org/v2/everything?q=Apple&from=2025-03-06&sortBy=popularity&apiKey=2a8213bad8204df2a0129b22909fb947',
+    const { articles } = await $.ajax({
+      url: "https://newsapi.org/v2/everything?q=Apple&from=2025-03-06&sortBy=popularity&apiKey=2a8213bad8204df2a0129b22909fb947",
       method: "GET",
-    })
-    
-    return articles
+    });
+
+    return articles;
   } catch (error) {
     console.error("Error:", error);
     return [];
@@ -22,8 +22,36 @@ async function fetchNewsList() {
 
 // 生成新闻内容
 function generateNewsContent(newsList) {
+  const swiper = $(".swiper-wrapper");
+  console.log(swiper);
+
+  const swiperItems = newsList
+    .splice(0, 3)
+    .map(
+      (i) => `
+     <div class="swiper-slide">
+          <div class="header">
+            <h1>${i.title}</h1>
+            <p>困困商圈 45.6万阅</p>
+          </div>
+          <img
+            src="${i.urlToImage}"
+            alt="Banner 1"
+          />
+        </div>`
+    )
+    .join("");
+  console.log(swiperItems);
+
+  swiper.html(swiperItems);
+  //Swiper 轮播图
+  new Swiper(".swiper", {
+    loop: true,
+    pagination: { el: ".swiper-pagination", clickable: true },
+    autoplay: { delay: 3000, disableOnInteraction: false },
+  });
   const cards = newsList
-    .splice(0, 2)
+    .splice(3, 2)
     .map(
       (i) => `
       <div class="card">
@@ -38,15 +66,15 @@ function generateNewsContent(newsList) {
 
   const items = newsList
     .map((i) => {
-      const hasThreeImages = false//i.Image.url_list.length >= 3;
-      const hasOneImage = true//i.Image.url_list.length >= 1;
+      const hasThreeImages = false; //i.Image.url_list.length >= 3;
+      const hasOneImage = true; //i.Image.url_list.length >= 1;
 
       return `
         <div class="list-card w-100vw">
           <a href="./details.html?id=${new Date().getTime()}">
             ${
               // hasThreeImages
-              //   ? 
+              //   ?
               // ` <div class="list-card-header">${i.Title}</div>
               //   <div class="flex justify-start items-center !m-[2px]">
               //     ${i.Image.url_list
@@ -59,7 +87,7 @@ function generateNewsContent(newsList) {
               //     </span>
               //   </div>`
               //   : hasOneImage
-              //   ? 
+              //   ?
               ` <div class="list-card-header flex justify-between">
                       <div class="flex flex-col justify-between flex-1 mr-[6px]">
                         <div class="tru-2 min-h-[46px]">${i.title}</div>
@@ -73,13 +101,13 @@ function generateNewsContent(newsList) {
                       <img src="${i.urlToImage}" class="object-cover rounded-md w-[110px] h-[76px]" />
                     </div>
             `
-            //      :` <div class="list-card-header max-h-[44px] tru-2">${i.Title}</div>
-            //         <div class="text-[#999] text-[12px]">
-            //             <span class="flex items-center justify-between">
-            //               12小时前，52评论
-            //             <span class='flex items-center justify-between'>99 <img src="/assets/like.png" width="12" height="12" class="inline-block ml-[2px]" /></span>
-            //           </span>
-            //         </div>`
+              //      :` <div class="list-card-header max-h-[44px] tru-2">${i.Title}</div>
+              //         <div class="text-[#999] text-[12px]">
+              //             <span class="flex items-center justify-between">
+              //               12小时前，52评论
+              //             <span class='flex items-center justify-between'>99 <img src="/assets/like.png" width="12" height="12" class="inline-block ml-[2px]" /></span>
+              //           </span>
+              //         </div>`
             }
           </a>
         </div>
