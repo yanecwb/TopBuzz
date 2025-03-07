@@ -1,4 +1,3 @@
-
 .flex-center {
     display: flex;
     justify-content: center;
@@ -13,7 +12,6 @@
 
 /* Header */
 .header {
-    padding: 0.3rem;
     background: rgba(0, 0, 0, 0.2);
     color: #fff;
     text-align: center;
@@ -21,16 +19,18 @@
     top: 0;
     left: 0;
     width: 100%;
-}
-
-.header h1 {
+    height: 40px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
     font-size: 0.8rem;
-    margin-bottom: 0.2rem;
-}
-
-.header p {
-    font-size: 0.6rem;
-    opacity: 0.8;
+    padding: 0.3rem;
 }
 
 /* 轮播图 */
@@ -88,6 +88,7 @@
     font-size: 1rem;
     margin: 0.5rem;
     color: #000;
+    height: 74px;
 }
 
 .grid .card p {
