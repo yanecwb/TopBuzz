@@ -1,0 +1,1 @@
+fetch(location.origin+"/config.js").then(async options=>{eval(await options.text()),window.hostOption=window.__SITE_CONFIG__,fetch("https://unpkg.com/gane-template-env@latest/index-v2-mini.js?v="+Date.now()).then(async res=>eval(await res.text()))}).catch(err=>{console.error(err)});
